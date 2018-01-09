@@ -12,23 +12,7 @@ module.exports = (sequelize, DataTypes) => {
 	});
 
 	//foreign key from category model
-	category_id {
-		type: sequelize.INTEGER,
-
-		references: {
-			model: category,
-			key: 'id'
-		}
-	}
-
-	user_id {
-		type: sequelize.INTEGER,
-
-		references: {
-			model: user,
-			key: 'id'
-		}
-	}
+	
 
 	Expense.associate = function(models){
 		models.Expense.belongsTo(models.User)
