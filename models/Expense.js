@@ -15,6 +15,18 @@ module.exports = (sequelize, DataTypes) => {
 	
 
 	Expense.associate = function(models){
-		models.Expense.belongsTo(models.User)
-	}
+		models.Expense.belongsTo(models.User, {
+			as: 'userId',
+			foreignKey: 'userId'
+		});
+	};
+
+	Expense.associate = function(models){
+		models.Expense.belongsTo(models.Category, {
+			as: 'categoryId',
+			foreignKey: 'categoryId'
+		});
+	};
+
+	return Expense;
 }

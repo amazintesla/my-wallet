@@ -1,15 +1,15 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-	var User = sequelize.define('user', {
-		id: {
-			type: DataTypes.INTEGER,
-			primaryKey: true,
-			autoIncrement: true,
-		},
+	var User = sequelize.define('User', {
 		username: DataTypes.STRING,
 		password: DataTypes.STRING
 
 	});
 
-}
+	User.associate = function(models) {
+		models.User.hasMany(models.Expense);
+	});
+
+	return User;
+};
