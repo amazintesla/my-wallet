@@ -2,18 +2,13 @@
 module.exports = (sequelize, DataTypes) => {
 	
 	var Expense = sequelize.define('expense' {
-		id: {
-			type: DataTypes.INTEGER,
-			primaryKey: true,
-			autoIncrement: true
-		}
+		title: DataTypes.STRING,
 		amount: DataTypes.INTEGER,
 		date: DataTypes.DATE
 	});
 
-	//foreign key from category model
 	
-
+	// foreign key from user model
 	Expense.associate = function(models){
 		models.Expense.belongsTo(models.User, {
 			as: 'userId',
@@ -21,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
 		});
 	};
 
+	// foreign key for category model
 	Expense.associate = function(models){
 		models.Expense.belongsTo(models.Category, {
 			as: 'categoryId',
